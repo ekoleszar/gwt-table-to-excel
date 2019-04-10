@@ -7,7 +7,7 @@
 	</parent>
 	<groupId>com.googlecode.gwt-table-to-excel</groupId>
 	<artifactId>gwt-table-to-excel</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5-agroti</version>
 	<packaging>jar</packaging>
 	<name>gwt-table-to-excel</name>
 	<description>GWT module to allow to export a table, without needing to write any server-side code</description>
@@ -40,7 +40,7 @@
 		<site>
 			<id>gwt-table-to-excel-site</id>
 			<url>
-				svn:https://gwt-table-to-excel.googlecode.com/svn/site/${version}
+				svn:https://gwt-table-to-excel.googlecode.com/svn/site/${project.version}
 			</url>
 		</site>
 	</distributionManagement>
@@ -88,9 +88,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<compilerVersion>1.5</compilerVersion>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerVersion>1.8</compilerVersion>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -98,7 +98,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>2.8.1</version>
 				<goals>
 					<goal>test</goal>
 				</goals>
@@ -166,6 +166,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
 				<executions>
 					<execution>
 						<id>sign-artifacts</id>
@@ -241,7 +242,7 @@
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>2.5.0</version>
+			<version>2.8.1</version>
 			<scope>provided</scope>
 		</dependency>
 

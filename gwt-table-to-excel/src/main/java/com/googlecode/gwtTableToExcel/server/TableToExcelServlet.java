@@ -68,6 +68,7 @@ public class TableToExcelServlet extends HttpServlet {
 
 	private void export(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String html = request.getParameter("html");
+		html = appendEncodingTag(html);
 		String fileName = request.getParameter("fileName");
 		if (!fileName.endsWith(".xls")) {
 			fileName = fileName + ".xls";
@@ -76,6 +77,15 @@ public class TableToExcelServlet extends HttpServlet {
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
 		response.setContentLength(html.length());
 		IOUtils.write(html, response.getOutputStream(), encoding);
+	}
+
+	/**
+	 * @param html la tabla en formato html
+	 * @return la tabla mas la codificacion UTF-8 para corregir que los caracteres especiales no se ven bien en Excel
+	 */
+	private String appendEncodingTag(String html) {
+		return new StringBuilder().append("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/></head><body>")
+				.append(html).append("</body></html>").toString();
 	}
 
 	public void setEncoding(String encoding) {
